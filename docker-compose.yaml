@@ -18,5 +18,3 @@ services:
       timeout: 5s
       retries: 3
     restart: always
-    depends_on:
-      - apollo
