@@ -5,7 +5,7 @@
 if [[ -z ${PREFECT_SERVER__APOLLO_URL} ]]
 then
     echo "Missing the PREFECT_SERVER__APOLLO_URL environment variable.  Using default"
-    PREFECT_SERVER__APOLLO_URL="http://localhost:4200/graphql"
+    PREFECT_SERVER__APOLLO_URL="http://14.241.231.87:4200/graphql"
 fi
 
 if [[ -z ${PREFECT_SERVER__BASE_URL} ]]
