@@ -1,0 +1,22 @@
+version: "3.5"
+# Features driving version requirement
+# - networks.name                 3.5
+# - healthcheck.start_period      2.3
+# - healthcheck                   2.1
+
+services:
+  ui:
+    image: hoangperry/prefect-ui:lastest
+    ports:
+      - "8080:8080"
+    command: "/intercept.sh"
+    environment:
+      PREFECT_SERVER__APOLLO_URL: ${APOLLO_URL:-http://14.241.231.87:4200/graphql}
+    healthcheck:
+      test: curl --fail --silent --head "http://localhost:8080/" &> /dev/null || exit 1
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: always
+    depends_on:
+      - apollo
