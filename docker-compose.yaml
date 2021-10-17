@@ -11,7 +11,7 @@ services:
       - "8080:8080"
     command: "/intercept.sh"
     environment:
-      PREFECT_SERVER__APOLLO_URL: ${APOLLO_URL:-http://14.241.231.87:4200/graphql}
+      PREFECT_SERVER__APOLLO_URL: -http://14.241.231.87:4200/graphql
     healthcheck:
       test: curl --fail --silent --head "http://localhost:8080/" &> /dev/null || exit 1
       interval: 30s
